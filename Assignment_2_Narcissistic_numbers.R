@@ -61,6 +61,12 @@ digs_cube_sum <- sum(digs_cube)
 # number, is a number that is equal to the sum of the cubes of its own digits. 
 # 153, 370, 371, 407 are three digit Armstrong numbers.
 
-# Display the result with an appropriate message, e.g. “127 is not an Armstrong 
-# number” or “370 is a narcissistic number” or any additional fun text you may 
-# want to add.
+# If the sum of the cubes does not equal to the original user input, it will
+# return a statement stating that it was not an Armstrong number. Otherwise, if
+# they do equal to each other, it will return a statement stating that it is
+# a narcissistic number.
+if (three_dig_num != digs_cube_sum) {
+  print(paste(three_dig, "is not an Armstrong number."))
+} else {
+  print(paste(three_dig, "is a  narcissistic number. YAY!!"))
+}
