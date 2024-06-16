@@ -44,6 +44,19 @@ if (is.na(three_dig_num)) {
   print("Thank you! Let's see if it is narcissistic.")
 }
 
+# Using the original user input, which was of type "string", split the numbers 
+# into digits. By using double square brackets, I am extracting the elements of
+# the output, rather than the list itself that contains the digit characters.
+digs <- strsplit(three_dig, "")[[1]]
+
+# The individual digits are converted back into type "numeric", so that each of 
+# the numbers can be cubed.
+digs_cube <- as.numeric(digs) ^ 3
+
+# Each of the digits are summed and saved to be compared to the original user 
+# input.
+digs_cube_sum <- sum(digs_cube)
+
 # Check if the number is narcissistic. A narcissistic number, or an Armstrong 
 # number, is a number that is equal to the sum of the cubes of its own digits. 
 # 153, 370, 371, 407 are three digit Armstrong numbers.
