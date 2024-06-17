@@ -1,20 +1,30 @@
+# Assignment 2 - Narcissistic Numbers
+# BTC1855
+# By Trinley Palmo
+
+# R version 4.4.0
+
 #' Plan
 #' Step 1: Read user input
 #' Step 2: Check user input to see if it is numeric and a three digit positive 
 #'         number
-#'  if it is not numeric
-#'    Print an error message prompting user to re-run code and try again
-#'  if it is numeric but less than or equal to 99
-#'    Print an error message saying it is too small and to try again
-#'  if it is numeric but greater than or equal to 1000
-#'    Print an error message saying it is too big and to try again.
-#'  if everything is good
-#'    Print a message saying thank you.
-#' Step 3: Break down user input into a vector of digits
-#' Step 4: Sum the cubes of each of the digits.
-#' Step 5: Check if the sum is equal to the original user input
+#' if it is not numeric
+#'   Print an error message prompting user to re-run code and try again
+#' Step 3: Check if it is an integer. (Added as bug fix)
+#' if it is not an integer
+#'   Print an error message prompting user to try again.
+#' Step 4: Check if it is less than or equal to 99
+#' if it is
+#'   Print an error message saying it is too small and to try again
+#' Step 5: Check if it is greater than or equal to 1000
+#' if it is
+#'   Print an error message saying it is too big and to try again.
+#' Step 6: If everything is good, print a message saying thank you.
+#' Step 7: Break down user input into a vector of digits
+#' Step 8: Sum the cubes of each of the digits.
+#' Step 9: Check if the sum is equal to the original user input
 #'  if F:
-#'    Print a message saying "(original user input) is not an Armstrong number."
+#'    Print a message saying "(original user input) is not a narcissitic number."
 #'  if T:
 #'    Print a message saying "(original user input) is a narcissistic number."
 
@@ -30,9 +40,11 @@ three_dig_num <- as.numeric(three_dig)
 if (is.na(three_dig_num)) {
   print("Your entry is not a number. Please try again.")
   
-# We need a three digit positive number, which it means it cannot be less than 
-# or equal to 99 OR greater than or equal to 1000. If it is, a new input must 
-# be entered.
+# We need a three digit positive number, which it means it has to be an integer.
+# It also cannot be less than or equal to 99 OR greater than or equal to 1000. 
+# If it is, a new input must be entered.
+} else if (grepl("\\.", three_dig)) {
+  print("Your entry is not an integer. Please try again.")
 } else if (99 >= three_dig_num) {
   print("Your number is too small! Please try again.")
 } else if (three_dig_num >= 1000) {
@@ -65,7 +77,7 @@ if (is.na(three_dig_num)) {
   # they do equal to each other, it will return a statement stating that it is
   # a narcissistic number.
   if (three_dig_num != digs_cube_sum) {
-    print(paste(three_dig, "is not an Armstrong number."))
+    print(paste(three_dig, "is not a narcissistic number."))
   } else {
     print(paste(three_dig, "is a  narcissistic number. YAY!!"))
   }
